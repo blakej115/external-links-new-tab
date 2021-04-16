@@ -1,14 +1,13 @@
 # external-links-new-tab
-Open External Links in a New Tab (jQuery - Kevin's Code)
+Open External Links in a New Tab
 
 ```
-jQuery('a').map(function (i, el) {
-    var elem = $(el);
-    var href = elem.attr('href');
-    var host = window.location.host;
+[...document.querySelectorAll('a')].map(function (el) {
+    let href = el.getAttribute('href'),
+        host = window.location.host;
     if (host && href) {
         if (href.indexOf(host) < 0 && href.indexOf('http') > -1) {
-            elem.attr('target', '_blank');
+            el.setAttribute('target', '_blank');
         }
     }
 });
